@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantify - Plant Disease Prediction</title>
+    
+    <!-- This loads our new static CSS file -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    
+    <!-- Tailwind CSS for easy styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans bg-gray-50">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md fixed w-full z-10 top-0">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-bold text-2xl text-green-700">Plantify</a>
+            <div class="space-x-4">
+                <a href="#home" class="text-gray-600 hover:text-green-700">Home</a>
+                <a href="#features" class="text-gray-600 hover:text-green-700">Features</a>
+                <a href="#predictor" class="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700">
+                    Try Now
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-16 bg-white text-center">
+        <div class="container mx-auto px-6">
+            <h1 class="text-5xl font-bold text-green-800 mb-4">
+                Identify Plant Diseases Instantly
+            </h1>
+            <p class="text-xl text-gray-700 mb-8">
+                Just upload an image of a plant leaf and let our AI tell you what's wrong.
+            </p>
+            <a href="#predictor" class="bg-green-600 text-white text-lg px-8 py-3 rounded-full font-medium hover:bg-green-700 shadow-lg">
+                Start Predicting
+            </a>
+            <img 
+                src="https://placehold.co/800x400/A0D9B4/333333?text=Illustration+of+Healthy+Plants&font=inter" 
+                alt="Healthy plants illustration" 
+                class="mx-auto mt-12 rounded-lg shadow-xl"
+                onerror="this.src='https://placehold.co/800x400?text=Image+Missing'"
+            >
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-12">How It Works</h2>
+            <div class="flex flex-col md:flex-row gap-8">
+                <!-- Feature 1 -->
+                <div class="flex-1 bg-white p-8 rounded-lg shadow-lg">
+                    <div class="bg-green-100 text-green-700 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">1. Upload Image</h3>
+                    <p class="text-gray-600">
+                        Take a clear photo of the plant leaf and upload it using our predictor tool.
+                    </p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="flex-1 bg-white p-8 rounded-lg shadow-lg">
+                    <div class="bg-green-100 text-green-700 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17.25l.038-.038A5.25 5.25 0 0115.75 12a5.25 5.25 0 01-6.038-6.038A5.25 5.25 0 0112 15.75a5.25 5.25 0 01-2.25 1.5m.001 0l.038.038m- .038-.038a5.25 5.25 0 01-1.5-2.25A5.25 5.25 0 016 12a5.25 5.25 0 016.038 6.038A5.25 5.25 0 0112 6a5.25 5.25 0 012.25 1.5m0 0l-.038.038m.038-.038a5.25 5.25 0 011.5 2.25A5.25 5.25 0 0118 12a5.25 5.25 0 01-6.038-6.038A5.25 5.25 0 0112 18a5.25 5.25 0 01-2.25-1.5m- .001 0l-.038-.038m.038.038l- .038.038"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">2. Analyze AI</h3>
+                    <p class="text-gray-600">
+                        Our trained PyTorch model analyzes the patterns and symptoms on the leaf.
+                    </p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="flex-1 bg-white p-8 rounded-lg shadow-lg">
+                    <div class="bg-green-100 text-green-700 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">3. Get Results</h3>
+                    <p class="text-gray-600">
+                        Receive an instant, accurate prediction of the plant's disease and its confidence score.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Predictor App Section -->
+    <section id="predictor" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="bg-white rounded-lg shadow-2xl p-8 max-w-lg w-full mx-auto">
+                
+                <h2 class="text-3xl font-bold text-center text-green-700 mb-6">
+                    Plant Disease Predictor
+                </h2>
+                
+                <!-- Image Upload Form -->
+                <form id="upload-form" class="space-y-6">
+                    <!-- This is needed for Django POST requests -->
+                    {% csrf_token %}
+                    
+                    <div>
+                        <label for="image-upload" class="block text-sm font-medium text-gray-700">
+                            Upload a leaf image:
+                        </label>
+                        <div class="mt-2 flex justify-center items-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg">
+                            <div class="space-y-1 text-center">
+                                <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="True">
+                                    <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <div class="flex text-sm text-gray-600">
+                                    <label for="image-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-green-600 hover:text-green-500 focus-within:outline-none">
+                                        <span>Click to upload</span>
+                                        <input id="image-upload" name="image" type="file" class="sr-only" accept="image/png, image/jpeg">
+                                    </label>
+                                    <p class="pl-1">or drag and drop</p>
+                                </div>
+                                <p class="text-xs text-gray-500">
+                                    PNG, JPG up to 10MB
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Preview Area -->
+                    <div id="image-preview-container" class="hidden">
+                        <p class="block text-sm font-medium text-gray-700 mb-2">Image Preview:</p>
+                        <img id="image-preview" src="#" alt="Image preview" class="w-full h-auto rounded-lg shadow-md"/>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-lg font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none">
+                        <span id="button-text">Predict</span>
+                        <span id="loading-spinner" class="hidden w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                    </button>
+                </form>
+                
+                <!-- Result Area -->
+                <div id="result-container" class="mt-8 hidden">
+                    <h2 class="text-2xl font-semibold text-center text-gray-800 mb-4">Prediction Result</h2>
+                    <div id="result-text" class="text-center text-xl font-medium p-4 rounded-lg bg-green-100 text-green-900">
+                        <!-- Result will be inserted here by JavaScript -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 Plantify. Built by Radha. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- This loads our new static JS file -->
+    <script src="{% static 'js/index.js' %}"></script>
+</body>
+</html>
+
