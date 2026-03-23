@@ -1,0 +1,9 @@
+/* We are using Tailwind CSS for almost all styling.
+  This file is here if you want to add any custom CSS
+  that Tailwind can't do.
+*/
+
+body {
+    /* Example of a custom style */
+    font-family: 'Inter', sans-serif;
+}
